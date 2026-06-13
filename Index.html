@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="description" content="Guida completa per neogenitori italiani: calcola i bonus bebè 2026, scarica le checklist ospedale e casa, scopri i prodotti essenziali." />
+  <title>BebèGuida — Il tuo punto di riferimento per i primi mesi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Force light mode — blocks iOS/Android dark mode completely */
+    :root {
+      color-scheme: light only;
+      --sage:     #7A9E7E;
+      --sage-lt:  #EFF4EF;
+      --sand:     #F7F3EE;
+      --ink:      #1C1C1C;
+      --ink-mid:  #4A4A4A;
+      --ink-lt:   #8A8A8A;
+      --cream:    #FFFDF9;
+      --blush:    #F2E8E1;
+      --accent:   #C17F5A;
+      --white:    #FFFFFF;
+      --border:   #E2DDD8;
+      --radius:   12px;
+      --font-display: 'Lora', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: light;
+        --sage:     #7A9E7E;
+        --sage-lt:  #EFF4EF;
+        --sand:     #F7F3EE;
+        --ink:      #1C1C1C;
+        --ink-mid:  #4A4A4A;
+        --ink-lt:   #8A8A8A;
+        --cream:    #FFFDF9;
+        --blush:    #F2E8E1;
+        --accent:   #C17F5A;
+        --white:    #FFFFFF;
+        --border:   #E2DDD8;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #FFFDF9;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #FFFDF9 !important;
+      color: #1C1C1C !important;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    section {
+      background: #FFFDF9;
+    }
+
+    /* Make sure labels and text are always dark */
+    label, p, h1, h2, h3, h4, span, li {
+      color: inherit;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,253,249,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem; font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--sage); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--ink-mid); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sage); }
+    @media(max-width: 600px) { .nav-links { display: none; } }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--sand);
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #d4e8d4 0%, transparent 70%);
+      opacity: .45;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--sage);
+      background: var(--sage-lt);
+      padding: .25rem .75rem; border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 600; line-height: 1.2;
+      color: var(--ink);
+      max-width: 680px; margin: 0 auto 1rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero p {
+      font-size: 1.0625rem; color: var(--ink-mid);
+      max-width: 500px; margin: 0 auto 2rem;
+    }
+    .hero-cta {
+      display: inline-flex; gap: .75rem; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      display: inline-block; padding: .75rem 1.5rem;
+      border-radius: 8px; font-weight: 600; font-size: .9375rem;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+    .btn-primary { background: var(--sage); color: var(--white); }
+    .btn-secondary {
+      background: var(--white); color: var(--ink);
+      border: 1.5px solid var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 4rem 1.5rem; max-width: 860px; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600; margin-bottom: 1rem;
+      color: #1C1C1C !important;
+    }
+    .section-sub {
+      color: var(--ink-mid); margin-bottom: 2rem;
+      max-width: 560px;
+    }
+    hr.divider {
+      border: none; border-top: 1px solid var(--border);
+      max-width: 860px; margin: 0 auto;
+    }
+
+    /* ── CALCOLATORE BONUS ── */
+    #bonus { background: var(--sand); border-radius: var(--radius); padding: 2.5rem; }
+    .calc-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    @media(max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
+    .field label {
+      display: block; font-size: .875rem; font-weight: 500;
+      margin-bottom: .4rem; color: var(--ink-mid);
+    }
+    .field select, .field input {
+      width: 100%; padding: .65rem .875rem;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-size: .9375rem; font-family: var(--font-body);
+      background: var(--white); color: var(--ink);
+      transition: border-color .2s;
+      appearance: none;
+    }
+    .field select:focus, .field input:focus {
+      outline: none; border-color: var(--sage);
+    }
+    #calcBtn {
+      width: 100%; padding: .85rem;
+      background: var(--sage); color: var(--white);
+      border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    #calcBtn:hover { background: #6a8e6e; transform: translateY(-1px); }
+    #risultati {
+      margin-top: 1.5rem; display: none;
+    }
+    .bonus-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      margin-bottom: .75rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      color: var(--ink);
+    }
+    .bonus-card.eligible { border-left: 4px solid var(--sage); }
+    .bonus-card.check { border-left: 4px solid #E8C547; }
+    .bonus-card.not { border-left: 4px solid #D4A5A5; opacity: .7; }
+    .bonus-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: .1rem; }
+    .bonus-name { font-weight: 600; margin-bottom: .2rem; }
+    .bonus-desc { font-size: .875rem; color: var(--ink-mid); }
+    .bonus-amount {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--font-display); font-size: 1.1rem;
+      font-weight: 600; color: var(--sage);
+    }
+    .disclaimer-calc {
+      margin-top: 1rem; font-size: .8rem; color: var(--ink-lt);
+      font-style: italic;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist-tabs {
+      display: flex; gap: .5rem; margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: .5rem 1.1rem; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: var(--white); font-size: .875rem;
+      font-weight: 500; cursor: pointer; color: var(--ink-mid);
+      transition: all .2s;
+    }
+    .tab-btn.active {
+      background: var(--sage); color: var(--white);
+      border-color: var(--sage);
+    }
+    .checklist-panel { display: none; }
+    .checklist-panel.active {
+      display: block;
+      background: #FFFFFF !important;
+      color: #1C1C1C !important;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1.5px solid #E2DDD8;
+    }
+    .check-category { margin-bottom: 1.5rem; }
+    .check-category h4 {
+      font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: .75rem; padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .check-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .55rem 0; cursor: pointer;
+      background: transparent;
+    }
+    .check-item input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--sage);
+      cursor: pointer; flex-shrink: 0;
+    }
+    .check-item label {
+      font-size: .9375rem; cursor: pointer;
+      color: #1C1C1C !important;
+      transition: color .15s;
+    }
+    .check-item input:checked + label {
+      text-decoration: line-through; color: var(--ink-lt);
+    }
+    .progress-bar-wrap {
+      background: var(--border); border-radius: 99px;
+      height: 6px; margin-bottom: 1.5rem; overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%; background: var(--sage);
+      border-radius: 99px; transition: width .3s;
+    }
+    .progress-label {
+      font-size: .8125rem; color: var(--ink-mid); margin-bottom: .5rem;
+    }
+
+    /* ── PRODOTTI ── */
+    .prodotti-intro { color: var(--ink-mid); margin-bottom: 2rem; font-size: .9375rem; }
+    .prodotti-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .prodotto-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      display: flex; flex-direction: column; gap: .5rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .prodotto-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+    }
+    .prodotto-emoji { font-size: 1.75rem; }
+    .prodotto-name { font-weight: 600; font-size: .9375rem; }
+    .prodotto-desc { font-size: .8375rem; color: var(--ink-mid); flex: 1; }
+    .prodotto-why {
+      font-size: .78rem; font-weight: 500;
+      color: var(--sage); background: var(--sage-lt);
+      padding: .2rem .6rem; border-radius: 99px;
+      display: inline-block; width: fit-content;
+    }
+    .prodotto-link {
+      display: block; text-align: center;
+      padding: .6rem; border-radius: 8px;
+      background: var(--blush); color: var(--accent);
+      font-weight: 600; font-size: .875rem;
+      text-decoration: none; margin-top: .25rem;
+      transition: background .2s;
+    }
+    .prodotto-link:hover { background: #e8d0c4; }
+    .affiliate-note {
+      font-size: .78rem; color: var(--ink-lt);
+      margin-top: 1.5rem; font-style: italic;
+      padding: .75rem 1rem; background: var(--sand);
+      border-radius: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,.6);
+      text-align: center; padding: 2.5rem 1.5rem;
+      font-size: .8125rem; line-height: 1.8;
+    }
+    footer strong { color: rgba(255,255,255,.85); }
+    footer a { color: rgba(255,255,255,.5); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Bebè<span>Guida</span></a>
+  <ul class="nav-links">
+    <li><a href="#bonus">Bonus 2026</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+    <li><a href="#prodotti">Prodotti</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Aggiornato 2026</div>
+  <h1>Tutto quello che ti serve per <em>accogliere il tuo bebè</em></h1>
+  <p>Calcola i bonus a cui hai diritto, prepara la borsa per l'ospedale e scopri cosa comprare davvero.</p>
+  <div class="hero-cta">
+    <a href="#bonus" class="btn btn-primary">Calcola i tuoi bonus →</a>
+    <a href="#checklist" class="btn btn-secondary">Vedi le checklist</a>
+  </div>
+</div>
+
+<!-- BONUS CALCOLATORE -->
+<section>
+  <div class="section-label">Soldi dallo Stato</div>
+  <div class="section-title">Bonus bebè 2026: a cosa hai diritto?</div>
+  <p class="section-sub">Inserisci la tua situazione e scopri in pochi secondi quali contributi puoi richiedere.</p>
+
+  <div id="bonus" style="background:#F7F3EE !important; color:#1C1C1C !important;">
+    <div class="calc-grid">
+      <div class="field">
+        <label>ISEE familiare (€)</label>
+        <select id="isee">
+          <option value="">Seleziona fascia</option>
+          <option value="under10">Sotto 10.000€</option>
+          <option value="under17">10.000 – 17.000€</option>
+          <option value="under40">17.000 – 40.000€</option>
+          <option value="over40">Oltre 40.000€</option>
+          <option value="no">Non ho ISEE</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Numero di figli (dopo la nascita)</label>
+        <select id="figli">
+          <option value="">Seleziona</option>
+          <option value="1">Primo figlio</option>
+          <option value="2">Secondo figlio</option>
+          <option value="3">Terzo o più</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Cittadinanza</label>
+        <select id="cittadinanza">
+          <option value="">Seleziona</option>
+          <option value="it">Italiana</option>
+          <option value="eu">UE</option>
+          <option value="extra">Extra-UE</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Situazione lavorativa</label>
+        <select id="lavoro">
+          <option value="">Seleziona</option>
+          <option value="dipendente">Lavoratore dipendente</option>
+          <option value="autonomo">Autonomo / P.IVA</option>
+          <option value="disoccupato">Disoccupato / in cerca</option>
+          <option value="altra">Altra situazione</option>
+        </select>
+      </div>
+    </div>
+    <button id="calcBtn" onclick="calcolaBonus()">Calcola i miei bonus →</button>
+    <div id="risultati"></div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CHECKLIST -->
+<section id="checklist" style="background:#FFFDF9 !important; color:#1C1C1C !important;">
+  <div class="section-label">Preparazione</div>
+  <div class="section-title">Le checklist per non dimenticare nulla</div>
+  <p class="section-sub">Spunta man mano che prepari — il progresso viene salvato nel browser.</p>
+
+  <div class="checklist-tabs">
+    <button class="tab-btn active" onclick="showTab('ospedale', this)">🏥 Borsa ospedale</button>
+    <button class="tab-btn" onclick="showTab('casa', this)">🏠 Casa pronta</button>
+    <button class="tab-btn" onclick="showTab('documenti', this)">📄 Documenti</button>
+  </div>
+
+  <!-- OSPEDALE -->
+  <div class="checklist-panel active" id="tab-ospedale">
+    <div class="progress-label" id="prog-ospedale-label">0 di 0 completati</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="prog-ospedale" style="width:0%"></div></div>
+
+    <div class="check-category">
+      <h4>Per la mamma</h4>
+      <div class="check-item"><input type="checkbox" id="o1" onchange="updateProgress('ospedale')"><label for="o1">Documenti identità + tessera sanitaria</label></div>
+      <div class="check-item"><input type="checkbox" id="o2" onchange="updateProgress('ospedale')"><label for="o2">Cartella clinica e referti ecografie</label></div>
+      <div class="check-item"><input type="checkbox" id="o3" onchange="updateProgress('ospedale')"><label for="o3">Piano del parto (se redatto)</label></div>
+      <div class="check-item"><input type="checkbox" id="o4" onchange="updateProgress('ospedale')"><label for="o4">Pigiami con apertura allattamento (2–3)</label></div>
+      <div class="check-item"><input type="checkbox" id="o5" onchange="updateProgress('ospedale')"><label for="o5">Reggiseno allattamento (2)</label></div>
+      <div class="check-item"><input type="checkbox" id="o6" onchange="updateProgress('ospedale')"><label for="o6">Assorbenti post-parto</label></div>
+      <div class="check-item"><input type="checkbox" id="o7" onchange="updateProgress('ospedale')"><label for="o7">Ciabatte antiscivolo</label></div>
+      <div class="check-item"><input type="checkbox" id="o8" onchange="updateProgress('ospedale')"><label for="o8">Accappatoio / vestaglia</label></div>
+      <div class="check-item"><input type="checkbox" id="o9" onchange="updateProgress('ospedale')"><label for="o9">Cuscino da allattamento</label></div>
+      <div class="check-item"><input type="checkbox" id="o10" onchange="updateProgress('ospedale')"><label for="o10">Crema per capezzoli (es. Purelan)</label></div>
+      <div class="check-item"><input type="checkbox" id="o11" onchange="updateProgress('ospedale')"><label for="o11">Snack per travaglio (barrette, frutta secca)</label></div>
+      <div class="check-item"><input type="checkbox" id="o12" onchange="updateProgress('ospedale')"><label for="o12">Caricabatterie telefono + cuffie</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Per il bebè</h4>
+      <div class="check-item"><input type="checkbox" id="o13" onchange="updateProgress('ospedale')"><label for="o13">Body neonato (taglia 56/62) × 3</label></div>
+      <div class="check-item"><input type="checkbox" id="o14" onchange="updateProgress('ospedale')"><label for="o14">Tutine con piedini × 2</label></div>
+      <div class="check-item"><input type="checkbox" id="o15" onchange="updateProgress('ospedale')"><label for="o15">Cappellino neonato</label></div>
+      <div class="check-item"><input type="checkbox" id="o16" onchange="updateProgress('ospedale')"><label for="o16">Calzini / muffole</label></div>
+      <div class="check-item"><input type="checkbox" id="o17" onchange="updateProgress('ospedale')"><label for="o17">Copertina leggera</label></div>
+      <div class="check-item"><input type="checkbox" id="o18" onchange="updateProgress('ospedale')"><label for="o18">Seggiolino auto (obbligatorio per il rientro)</label></div>
+    </div>
+  </div>
+
+  <!-- CASA -->
+  <div class="checklist-panel" id="tab-casa">
+    <div class="progress-label" id="prog-casa-label">0 di 0 completati</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="prog-casa" style="width:0%"></div></div>
+
+    <div class="check-category">
+      <h4>Sonno</h4>
+      <div class="check-item"><input type="checkbox" id="c1" onchange="updateProgress('casa')"><label for="c1">Culla o lettino con materasso adeguato</label></div>
+      <div class="check-item"><input type="checkbox" id="c2" onchange="updateProgress('casa')"><label for="c2">Lenzuola con angoli (misura culla)</label></div>
+      <div class="check-item"><input type="checkbox" id="c3" onchange="updateProgress('casa')"><label for="c3">Telo impermeabile sotto lenzuolo</label></div>
+      <div class="check-item"><input type="checkbox" id="c4" onchange="updateProgress('casa')"><label for="c4">Copertine neonato × 2</label></div>
+      <div class="check-item"><input type="checkbox" id="c5" onchange="updateProgress('casa')"><label for="c5">Baby monitor</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Alimentazione</h4>
+      <div class="check-item"><input type="checkbox" id="c6" onchange="updateProgress('casa')"><label for="c6">Biberon × 2 (anche se allatti, per emergenze)</label></div>
+      <div class="check-item"><input type="checkbox" id="c7" onchange="updateProgress('casa')"><label for="c7">Sterilizzatore biberon</label></div>
+      <div class="check-item"><input type="checkbox" id="c8" onchange="updateProgress('casa')"><label for="c8">Ciuccio × 2 (forma ortodontica)</label></div>
+      <div class="check-item"><input type="checkbox" id="c9" onchange="updateProgress('casa')"><label for="c9">Cuscino da allattamento</label></div>
+      <div class="check-item"><input type="checkbox" id="c10" onchange="updateProgress('casa')"><label for="c10">Bavagli × 5+</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Igiene & cura</h4>
+      <div class="check-item"><input type="checkbox" id="c11" onchange="updateProgress('casa')"><label for="c11">Vaschetta bagnetto</label></div>
+      <div class="check-item"><input type="checkbox" id="c12" onchange="updateProgress('casa')"><label for="c12">Fasciatoio (da piano o autonomo)</label></div>
+      <div class="check-item"><input type="checkbox" id="c13" onchange="updateProgress('casa')"><label for="c13">Pannolini newborn (primo pacco piccolo)</label></div>
+      <div class="check-item"><input type="checkbox" id="c14" onchange="updateProgress('casa')"><label for="c14">Salviettine senza profumo</label></div>
+      <div class="check-item"><input type="checkbox" id="c15" onchange="updateProgress('casa')"><label for="c15">Crema cambio pannolino</label></div>
+      <div class="check-item"><input type="checkbox" id="c16" onchange="updateProgress('casa')"><label for="c16">Termometro digitale</label></div>
+      <div class="check-item"><input type="checkbox" id="c17" onchange="updateProgress('casa')"><label for="c17">Aspiratore nasale</label></div>
+      <div class="check-item"><input type="checkbox" id="c18" onchange="updateProgress('casa')"><label for="c18">Detergente corpo/capelli neonato</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Uscite</h4>
+      <div class="check-item"><input type="checkbox" id="c19" onchange="updateProgress('casa')"><label for="c19">Passeggino / carrozzina</label></div>
+      <div class="check-item"><input type="checkbox" id="c20" onchange="updateProgress('casa')"><label for="c20">Seggiolino auto gruppo 0+</label></div>
+      <div class="check-item"><input type="checkbox" id="c21" onchange="updateProgress('casa')"><label for="c21">Marsupio/fascia ergonomica</label></div>
+      <div class="check-item"><input type="checkbox" id="c22" onchange="updateProgress('casa')"><label for="c22">Borsa fasciatoio da viaggio</label></div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTI -->
+  <div class="checklist-panel" id="tab-documenti">
+    <div class="progress-label" id="prog-documenti-label">0 di 0 completati</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="prog-documenti" style="width:0%"></div></div>
+
+    <div class="check-category">
+      <h4>Entro 3 giorni dalla nascita</h4>
+      <div class="check-item"><input type="checkbox" id="d1" onchange="updateProgress('documenti')"><label for="d1">Dichiarazione di nascita (in ospedale o Comune)</label></div>
+      <div class="check-item"><input type="checkbox" id="d2" onchange="updateProgress('documenti')"><label for="d2">Scelta del nome registrata all'ospedale</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Entro 30 giorni</h4>
+      <div class="check-item"><input type="checkbox" id="d3" onchange="updateProgress('documenti')"><label for="d3">Codice fiscale neonato (Agenzia delle Entrate)</label></div>
+      <div class="check-item"><input type="checkbox" id="d4" onchange="updateProgress('documenti')"><label for="d4">Scelta pediatra di base (ASL)</label></div>
+      <div class="check-item"><input type="checkbox" id="d5" onchange="updateProgress('documenti')"><label for="d5">Iscrizione SSN neonato</label></div>
+    </div>
+
+    <div class="check-category">
+      <h4>Bonus e sussidi</h4>
+      <div class="check-item"><input type="checkbox" id="d6" onchange="updateProgress('documenti')"><label for="d6">Domanda Assegno Unico (INPS, entro 120gg)</label></div>
+      <div class="check-item"><input type="checkbox" id="d7" onchange="updateProgress('documenti')"><label for="d7">Bonus Nuovi Nati 1.000€ (INPS, entro 120gg)</label></div>
+      <div class="check-item"><input type="checkbox" id="d8" onchange="updateProgress('documenti')"><label for="d8">Congedo parentale (datore di lavoro o INPS)</label></div>
+      <div class="check-item"><input type="checkbox" id="d9" onchange="updateProgress('documenti')"><label for="d9">ISEE aggiornato con nuovo componente</label></div>
+      <div class="check-item"><input type="checkbox" id="d10" onchange="updateProgress('documenti')"><label for="d10">Bonus asilo nido (se previsto entro 1 anno)</label></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PRODOTTI -->
+<section id="prodotti" style="background:#FFFDF9 !important; color:#1C1C1C !important;">
+  <div class="section-label">Lista prodotti</div>
+  <div class="section-title">Cosa comprare davvero</div>
+  <p class="prodotti-intro">Solo quello che serve, senza sprechi. Ogni link va direttamente su Amazon — nessun prezzo gonfiato, nessun intermediario.</p>
+
+  <div class="prodotti-grid">
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🚗</div>
+      <div class="prodotto-name">Seggiolino auto</div>
+      <div class="prodotto-desc">Obbligatorio per legge dal primo rientro a casa. Gruppo 0+ (nascita – 13 kg), montaggio contro marcia.</div>
+      <div class="prodotto-why">⚠️ Obbligatorio per legge</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=seggiolino+auto+neonato+gruppo+0&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🛏️</div>
+      <div class="prodotto-name">Culla / lettino</div>
+      <div class="prodotto-desc">Per i primi mesi, una culla a fianco del letto. Poi si passa al lettino. Cerca modelli con sponde abbassabili.</div>
+      <div class="prodotto-why">✓ Più dormite = più sanità mentale</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=culla+neonato+fianco+letto&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🍼</div>
+      <div class="prodotto-name">Sterilizzatore biberon</div>
+      <div class="prodotto-desc">Indispensabile anche se allatti. Quelli a vapore per microonde sono economici e veloci.</div>
+      <div class="prodotto-why">✓ Igiene senza sforzo</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=sterilizzatore+biberon+vapore&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">📡</div>
+      <div class="prodotto-name">Baby monitor</div>
+      <div class="prodotto-desc">Con video e audio. Quelli WiFi ti permettono di monitorare anche dallo smartphone quando sei in un'altra stanza.</div>
+      <div class="prodotto-why">✓ Necessario appena si cresce</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=baby+monitor+video+wifi&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🛁</div>
+      <div class="prodotto-name">Vaschetta bagnetto</div>
+      <div class="prodotto-desc">Con supporto antiscivolo e indicatore temperatura. Quelle ergonomiche reggono il neonato da soli.</div>
+      <div class="prodotto-why">✓ Sicurezza durante il bagnetto</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=vaschetta+bagnetto+neonato+ergonomica&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🤱</div>
+      <div class="prodotto-name">Cuscino allattamento</div>
+      <div class="prodotto-desc">Salva la schiena e le braccia durante le poppate. Utile anche per sostenere il bebè quando impara a sedersi.</div>
+      <div class="prodotto-why">✓ Comfort per mamma e bebè</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=cuscino+allattamento&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">👜</div>
+      <div class="prodotto-name">Passeggino</div>
+      <div class="prodotto-desc">Cerca combo (navicella + passeggino) se vuoi un sistema che dura. Controlla che sia compatibile con il tuo seggiolino auto.</div>
+      <div class="prodotto-why">✓ Per ogni uscita da subito</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=passeggino+neonato+sistema+trio&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+    <div class="prodotto-card">
+      <div class="prodotto-emoji">🌡️</div>
+      <div class="prodotto-name">Termometro digitale</div>
+      <div class="prodotto-desc">Quello auricolare/frontale è il più semplice da usare. Averne uno affidabile è fondamentale per i primi mesi.</div>
+      <div class="prodotto-why">✓ Prima notte di febbre: non ti fai trovare senza</div>
+      <a class="prodotto-link" href="https://www.amazon.it/s?k=termometro+auricolare+neonato&tag=TUOTAG-21" target="_blank" rel="noopener">Vedi su Amazon →</a>
+    </div>
+
+  </div>
+
+  <p class="affiliate-note">
+    ℹ️ <strong>Nota</strong>: BebèGuida partecipa al Programma di Affiliazione Amazon EU. Acquistando tramite i link di questa pagina riceviamo una piccola commissione, senza costi aggiuntivi per te. Questo ci permette di mantenere il sito gratuito.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>BebèGuida</strong><br>
+  Informazioni generali aggiornate a giugno 2026. Non sostituiscono consulenza medica, legale o fiscale.<br>
+  Le informazioni sui bonus sono indicative — verifica sempre su <a href="https://www.inps.it" target="_blank">INPS.it</a>.<br><br>
+  © 2026 BebèGuida · Progetto indipendente
+</footer>
+
+<script>
+  // ── CALCOLATORE BONUS ──────────────────────────────────────────
+  function calcolaBonus() {
+    const isee = document.getElementById('isee').value;
+    const figli = document.getElementById('figli').value;
+    const citt = document.getElementById('cittadinanza').value;
+    const lavoro = document.getElementById('lavoro').value;
+
+    if (!isee || !figli || !citt || !lavoro) {
+      alert('Compila tutti i campi per vedere i tuoi bonus.');
+      return;
+    }
+
+    const risultati = [];
+
+    // 1. Assegno Unico Universale
+    const auEligible = (citt === 'it' || citt === 'eu');
+    let auAmount = '—';
+    let auDesc = '';
+    if (isee === 'under10') { auAmount = 'fino a ~265€/mese'; auDesc = 'Fascia massima. Richiedilo subito tramite INPS.'; }
+    else if (isee === 'under17') { auAmount = 'circa 130–200€/mese'; auDesc = 'Fascia media. Importo scalato sull\'ISEE.'; }
+    else if (isee === 'under40') { auAmount = 'circa 57–130€/mese'; auDesc = 'Importo base decrescente.'; }
+    else if (isee === 'over40') { auAmount = '57€/mese (base)'; auDesc = 'Importo minimo garantito senza limite ISEE.'; }
+    else { auAmount = '57€/mese stimati'; auDesc = 'Senza ISEE ricevi l\'importo minimo. Conviene fare l\'ISEE.'; }
+    risultati.push({
+      emoji: '👶', name: 'Assegno Unico Universale',
+      desc: auDesc, amount: auAmount,
+      status: auEligible ? 'eligible' : 'not'
+    });
+
+    // 2. Bonus Nuovi Nati 1.000€
+    const bnnEligible = (isee === 'under40' || isee === 'under17' || isee === 'under10');
+    risultati.push({
+      emoji: '💶', name: 'Bonus Nuovi Nati 1.000€',
+      desc: bnnEligible
+        ? 'ISEE sotto 40.000€: hai diritto al bonus una tantum. Fai domanda entro 120 giorni dalla nascita su INPS.'
+        : 'Con ISEE sopra 40.000€ questo bonus non è accessibile.',
+      amount: bnnEligible ? '1.000€ una tantum' : '—',
+      status: bnnEligible ? 'eligible' : 'not'
+    });
+
+    // 3. Congedo maternità/paternità
+    let congStatus = 'eligible';
+    let congDesc = '';
+    let congAmount = '';
+    if (lavoro === 'dipendente') {
+      congDesc = 'Maternità obbligatoria (5 mesi all\'80%). Paternità obbligatoria (10 giorni al 100%). Congedo parentale facoltativo.';
+      congAmount = '80% stipendio (maternità)';
+    } else if (lavoro === 'autonomo') {
+      congDesc = 'Indennità di maternità INPS per autonomi. Importo basato sui contributi versati.';
+      congAmount = 'Circa 80% reddito INPS';
+    } else {
+      congDesc = 'Verifica con il tuo CAF — potrebbero esserci tutele specifiche per la tua situazione.';
+      congAmount = 'Da verificare';
+      congStatus = 'check';
+    }
+    risultati.push({
+      emoji: '🏥', name: 'Congedo maternità / paternità',
+      desc: congDesc, amount: congAmount, status: congStatus
+    });
+
+    // 4. Bonus asilo nido
+    let nidoAmount = '';
+    let nidoDesc = '';
+    if (isee === 'under10') { nidoAmount = 'fino a 3.000€/anno'; nidoDesc = 'Fascia massima. Richiedilo tramite INPS entro i 3 anni del bambino.'; }
+    else if (isee === 'under17') { nidoAmount = 'fino a 2.500€/anno'; nidoDesc = 'Fascia media. Verifica con INPS l\'importo esatto.'; }
+    else if (isee === 'under40') { nidoAmount = 'fino a 1.500€/anno'; nidoDesc = 'Fascia base.'; }
+    else { nidoAmount = 'non accessibile'; nidoDesc = 'Reddito troppo alto per questo bonus.'; }
+    risultati.push({
+      emoji: '🏫', name: 'Bonus asilo nido',
+      desc: nidoDesc, amount: nidoAmount,
+      status: (isee !== 'over40') ? 'eligible' : 'not'
+    });
+
+    // 5. Terzo figlio extra
+    if (figli === '3') {
+      risultati.push({
+        emoji: '🌟', name: 'Maggiorazione Assegno Unico (3° figlio+)',
+        desc: 'Con tre o più figli l\'importo dell\'Assegno Unico aumenta. Verifica con INPS per importo esatto aggiornato.',
+        amount: '+maggiorazione', status: 'eligible'
+      });
+    }
+
+    // ── Render risultati
+    let html = '';
+    risultati.forEach(b => {
+      html += `
+        <div class="bonus-card ${b.status}">
+          <div class="bonus-icon">${b.emoji}</div>
+          <div>
+            <div class="bonus-name">${b.name}</div>
+            <div class="bonus-desc">${b.desc}</div>
+          </div>
+          <div class="bonus-amount">${b.amount}</div>
+        </div>`;
+    });
+    html += `<p class="disclaimer-calc">* Importi indicativi basati sulle normative vigenti a giugno 2026. Verifica sempre su INPS.it o con un CAF prima di fare domanda.</p>`;
+
+    const el = document.getElementById('risultati');
+    el.innerHTML = html;
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ── CHECKLIST TABS ─────────────────────────────────────────────
+  function showTab(id, btn) {
+    document.querySelectorAll('.checklist-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    updateProgress(id);
+  }
+
+  function updateProgress(tabId) {
+    const panel = document.getElementById('tab-' + tabId);
+    if (!panel) return;
+    const all = panel.querySelectorAll('input[type="checkbox"]');
+    const done = panel.querySelectorAll('input[type="checkbox"]:checked');
+    const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+    const bar = document.getElementById('prog-' + tabId);
+    const label = document.getElementById('prog-' + tabId + '-label');
+    if (bar) bar.style.width = pct + '%';
+    if (label) label.textContent = `${done.length} di ${all.length} completati (${pct}%)`;
+  }
+
+  // init progress
+  ['ospedale', 'casa', 'documenti'].forEach(t => updateProgress(t));
+</script>
+
+</body>
+</html>
